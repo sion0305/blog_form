@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>씨알유디 연습</title>
+        <style>
+             @font-face { font-family: 'Cafe24Danjunghae'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff') format('woff'); font-weight: normal; font-style: normal; }
+            
+            .login{
+                margin: 30px;
+                padding: 20px;
+                border: 1px black solid;
+                border-radius: 20px;
+                background-color:rgb(250, 255, 180);
+                width : 600px;
+            }
+            h1{
+                font-family: Cafe24Danjunghae;
+                color:darkgreen;
+                
+            }
+            .signup{
+                color:red;
+            }
+        </style>
+    </head>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <body >
+        <div class="login">
+        <h1>Login</h1>
+        
+            <form method = "POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                Username:
+                <br>
+                <input name="name" type="text" value="">
+                <br>
+                Pssword:
+                <br>
+                <input name="pw" type="password" value="">
+                <br>
+                <br>
+                <input type=submit value="Login">
+            </form>
+            <br>
+            <span>아직 계정이 없으신가요?? <a class="signup" href="{% url 'signup' %}">회원가입</a></span>
+        </div>
+    {% endblock %}
+    </body>
+        
